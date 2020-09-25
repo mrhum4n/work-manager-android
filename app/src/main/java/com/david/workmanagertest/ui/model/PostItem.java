@@ -1,17 +1,24 @@
 package com.david.workmanagertest.ui.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by David Sanjaya on 9/25/2020
  * WorkManagerTest
  */
+@Entity(tableName = "postItem")
 public class PostItem {
-    @SerializedName("userId")
-    private int userId;
-
+    @PrimaryKey
+    @NonNull
     @SerializedName("id")
     private int id;
+
+    @SerializedName("userId")
+    private int userId;
 
     @SerializedName("title")
     private String title;
