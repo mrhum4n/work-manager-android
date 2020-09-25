@@ -1,4 +1,4 @@
-package com.david.workmanagertest.ui.room;
+package com.david.workmanagertest.room;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

@@ -5,7 +5,6 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,7 +15,7 @@ import com.david.workmanagertest.databinding.ActivityMainBinding;
 import com.david.workmanagertest.databinding.ContentMainBinding;
 import com.david.workmanagertest.ui.adapter.ItemAdapter;
 import com.david.workmanagertest.ui.model.PostItem;
-import com.david.workmanagertest.ui.viewModel.MainActivityVm;
+import com.david.workmanagertest.viewModel.MainActivityVm;
 
 import java.util.ArrayList;
 import java.util.List;

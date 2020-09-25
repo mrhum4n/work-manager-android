@@ -1,6 +1,6 @@
-package com.david.workmanagertest.ui.service;
+package com.david.workmanagertest.service;
 
-import com.david.workmanagertest.ui.tools.Const;
+import com.david.workmanagertest.tools.Const;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

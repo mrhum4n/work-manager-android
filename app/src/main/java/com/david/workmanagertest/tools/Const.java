@@ -1,4 +1,4 @@
-package com.david.workmanagertest.ui.tools;
+package com.david.workmanagertest.tools;
 
 /**
  * Created by David Sanjaya on 9/25/2020

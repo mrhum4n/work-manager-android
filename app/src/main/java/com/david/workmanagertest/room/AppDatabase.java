@@ -1,4 +1,4 @@
-package com.david.workmanagertest.ui.room;
+package com.david.workmanagertest.room;
 
 import android.content.Context;
 
@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.david.workmanagertest.ui.model.PostItem;
-import com.david.workmanagertest.ui.tools.Const;
+import com.david.workmanagertest.tools.Const;
 
 /**
  * Created by David Sanjaya on 9/25/2020

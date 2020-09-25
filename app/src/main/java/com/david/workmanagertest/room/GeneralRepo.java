@@ -1,9 +1,11 @@
-package com.david.workmanagertest.ui.room;
+package com.david.workmanagertest.room;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
+import com.david.workmanagertest.room.AppDatabase;
+import com.david.workmanagertest.room.GeneralDao;
 import com.david.workmanagertest.ui.model.PostItem;
 
 import java.util.List;

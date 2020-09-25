@@ -1,17 +1,15 @@
-package com.david.workmanagertest.ui.viewModel;
+package com.david.workmanagertest.viewModel;
 
 import android.app.Application;
-import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.david.workmanagertest.ui.model.PostItem;
-import com.david.workmanagertest.ui.room.GeneralRepo;
-import com.david.workmanagertest.ui.service.ApiRepository;
-import com.david.workmanagertest.ui.service.RetrofitClient;
+import com.david.workmanagertest.room.GeneralRepo;
+import com.david.workmanagertest.service.ApiRepository;
+import com.david.workmanagertest.service.RetrofitClient;
 
 import java.util.List;
 

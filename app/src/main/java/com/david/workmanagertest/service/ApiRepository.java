@@ -1,4 +1,4 @@
-package com.david.workmanagertest.ui.service;
+package com.david.workmanagertest.service;
 
 import com.david.workmanagertest.ui.model.PostItem;
 
