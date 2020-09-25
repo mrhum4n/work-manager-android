@@ -1,7 +1,8 @@
-package com.david.workmanagertest;
+package com.david.workmanagertest.ui.home;
 
 import android.os.Bundle;
 
+import com.david.workmanagertest.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
