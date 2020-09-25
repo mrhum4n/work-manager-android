@@ -1,6 +1,7 @@
 package com.david.workmanagertest.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,16 +10,25 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.work.ExistingWorkPolicy;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+import androidx.work.WorkerParameters;
 
 import com.david.workmanagertest.R;
 import com.david.workmanagertest.databinding.ActivityMainBinding;
 import com.david.workmanagertest.databinding.ContentMainBinding;
+import com.david.workmanagertest.tools.Const;
 import com.david.workmanagertest.ui.adapter.ItemAdapter;
 import com.david.workmanagertest.ui.model.PostItem;
 import com.david.workmanagertest.viewModel.MainActivityVm;
+import com.david.workmanagertest.workManager.MyWorker;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import static com.david.workmanagertest.workManager.MyWorker.WORKER_TAG;
 
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private ActivityMainBinding binding;
@@ -74,10 +84,31 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         content.rvItems.setLayoutManager(layoutManager);
         content.rvItems.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         content.rvItems.setAdapter(adapter);
+
+        // worker
+        OneTimeWorkRequest workRequest = new OneTimeWorkRequest.Builder(MyWorker.class)
+                .setInitialDelay(10, TimeUnit.SECONDS)
+                .build();
+        WorkManager.getInstance(this).enqueueUniqueWork(
+                WORKER_TAG,
+                ExistingWorkPolicy.KEEP,
+                workRequest);
     }
 
     @Override
     public void onRefresh() {
         vm.loadPostItem(callback);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        WorkManager.getInstance(this).cancelUniqueWork(WORKER_TAG);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        WorkManager.getInstance(this).cancelUniqueWork(WORKER_TAG);
     }
 }
